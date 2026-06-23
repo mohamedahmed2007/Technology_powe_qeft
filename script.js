@@ -1,230 +1,239 @@
-// ==================== Initialize AOS Animation Library ====================
-AOS.init({
-    duration: 800,
-    once: true,
-    easing: 'ease-out-cubic',
+// ===== Preloader =====
+window.addEventListener('load', () => {
+    const preloader = document.getElementById('preloader');
+    preloader.classList.add('hide');
+    setTimeout(() => preloader.style.display = 'none', 500);
 });
 
-// ==================== DOM Elements ====================
+// ===== DOM Elements =====
 const header = document.getElementById('header');
+const backToTop = document.getElementById('backToTop');
+const menuToggle = document.getElementById('menuToggle');
 const nav = document.getElementById('nav');
-const navList = document.querySelector('.nav-list');
-const mobileMenuBtn = document.getElementById('mobileMenuBtn');
 const darkModeToggle = document.getElementById('darkModeToggle');
 const body = document.body;
-const backToTopBtn = document.getElementById('backToTop');
-const inspectionForm = document.getElementById('inspectionForm');
-const formSuccess = document.getElementById('formSuccess');
-const statNumbers = document.querySelectorAll('.stat-number');
-const filterBtns = document.querySelectorAll('.filter-btn');
-const galleryItems = document.querySelectorAll('.gallery-item');
-const testimonialCards = document.querySelectorAll('.testimonial-card');
-const dots = document.querySelectorAll('.dot');
-const faqQuestions = document.querySelectorAll('.faq-question');
 
-// ==================== Dark Mode Toggle ====================
-// Check local storage for dark mode preference
-const currentTheme = localStorage.getItem('theme');
-if (currentTheme === 'dark') {
-    body.classList.add('dark-mode');
-}
-
-darkModeToggle.addEventListener('click', () => {
-    body.classList.toggle('dark-mode');
-    // Save preference
-    if (body.classList.contains('dark-mode')) {
-        localStorage.setItem('theme', 'dark');
+// ===== Sticky Header =====
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 80) {
+        header.classList.add('scrolled');
+        backToTop.classList.add('show');
     } else {
-        localStorage.setItem('theme', 'light');
+        header.classList.remove('scrolled');
+        backToTop.classList.remove('show');
     }
 });
 
-// ==================== Mobile Menu Toggle ====================
-mobileMenuBtn.addEventListener('click', () => {
-    navList.classList.toggle('active');
-    mobileMenuBtn.classList.toggle('active');
+// ===== Mobile Menu Toggle =====
+menuToggle.addEventListener('click', () => {
+    nav.classList.toggle('active');
 });
 
-// Close mobile menu when a link is clicked
+// Close menu on link click
 document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', () => {
-        navList.classList.remove('active');
-        mobileMenuBtn.classList.remove('active');
-        // Update active class
-        document.querySelector('.nav-link.active')?.classList.remove('active');
-        link.classList.add('active');
+        nav.classList.remove('active');
     });
 });
 
-// ==================== Sticky Header Shadow on Scroll ====================
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-        header.style.boxShadow = '0 5px 20px rgba(0,0,0,0.1)';
-    } else {
-        header.style.boxShadow = 'none';
-    }
-
-    // Back to Top Button visibility
-    if (window.scrollY > 500) {
-        backToTopBtn.classList.add('visible');
-    } else {
-        backToTopBtn.classList.remove('visible');
-    }
-
-    // Active nav link based on scroll position (simple implementation)
-    const scrollPos = window.scrollY + 100;
-    document.querySelectorAll('section[id]').forEach(section => {
-        const top = section.offsetTop - 100;
-        const bottom = top + section.offsetHeight;
-        if (scrollPos >= top && scrollPos < bottom) {
-            const id = section.getAttribute('id');
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${id}`) {
-                    link.classList.add('active');
-                }
-            });
-        }
-    });
+// ===== Dark Mode =====
+darkModeToggle.addEventListener('click', () => {
+    body.classList.toggle('dark');
+    localStorage.setItem('darkMode', body.classList.contains('dark'));
 });
 
-// Back to Top smooth scroll
-backToTopBtn.addEventListener('click', () => {
+// Load dark mode preference
+if (localStorage.getItem('darkMode') === 'true') {
+    body.classList.add('dark');
+}
+
+// ===== Smooth Scroll for Back to Top =====
+backToTop.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
-// ==================== Stats Counter Animation ====================
-const animateCounter = (entries, observer) => {
+// ===== Active Nav Link on Scroll =====
+const sections = document.querySelectorAll('section[id]');
+window.addEventListener('scroll', () => {
+    let scrollY = window.pageYOffset;
+    sections.forEach(section => {
+        const sectionHeight = section.offsetHeight;
+        const sectionTop = section.offsetTop - 100;
+        const sectionId = section.getAttribute('id');
+        const navLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
+        if (navLink && scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+            document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+            navLink.classList.add('active');
+        }
+    });
+});
+
+// ===== Counter Animation =====
+const counters = document.querySelectorAll('.counter');
+const speed = 50;
+
+const animateCounter = (counter) => {
+    const target = +counter.getAttribute('data-target');
+    const count = +counter.innerText;
+    const increment = target / speed;
+    if (count < target) {
+        counter.innerText = Math.ceil(count + increment);
+        setTimeout(() => animateCounter(counter), 20);
+    } else {
+        counter.innerText = target;
+    }
+};
+
+const observerOptions = {
+    threshold: 0.5
+};
+
+const counterObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             const counter = entry.target;
-            const target = +counter.getAttribute('data-target');
-            const duration = 2000;
-            const step = target / (duration / 16);
-            let current = 0;
-
-            const updateCounter = () => {
-                current += step;
-                if (current < target) {
-                    counter.textContent = Math.floor(current);
-                    requestAnimationFrame(updateCounter);
-                } else {
-                    counter.textContent = target;
-                }
-            };
-            updateCounter();
+            animateCounter(counter);
             observer.unobserve(counter);
         }
     });
-};
+}, observerOptions);
 
-const counterObserver = new IntersectionObserver(animateCounter, {
-    threshold: 0.5
-});
+counters.forEach(counter => counterObserver.observe(counter));
 
-statNumbers.forEach(number => {
-    counterObserver.observe(number);
-});
+// ===== Scroll Reveal =====
+const revealElements = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            revealObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.15 });
 
-// ==================== Gallery Filter ====================
-filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-        // Update active button
-        filterBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
+revealElements.forEach(el => revealObserver.observe(el));
 
-        const filterValue = btn.getAttribute('data-filter');
+// ===== Products Grid (Dynamic) =====
+const products = [
+    { name: 'كاميرات مراقبة', icon: 'fa-video', desc: 'داخلية، خارجية، IP، WiFi' },
+    { name: 'أجهزة تسجيل DVR/NVR', icon: 'fa-hdd', desc: 'سعات تخزين متعددة' },
+    { name: 'هاردات المراقبة', icon: 'fa-database', desc: 'حتى 4 تيرا بايت' },
+    { name: 'كابلات الشبكات', icon: 'fa-network-wired', desc: 'Cat6 والألياف الضوئية' },
+    { name: 'أجهزة البصمة', icon: 'fa-fingerprint', desc: 'للحضور والانصراف' },
+    { name: 'راوترات وسويتشات', icon: 'fa-wifi', desc: 'أجهزة شبكات عالية الأداء' },
+];
 
+const productsGrid = document.getElementById('productsGrid');
+if (productsGrid) {
+    products.forEach(product => {
+        const card = document.createElement('div');
+        card.className = 'product-card reveal';
+        card.innerHTML = `
+            <div class="product-img"><i class="fas ${product.icon}"></i></div>
+            <div class="product-info">
+                <h4>${product.name}</h4>
+                <p>${product.desc}</p>
+            </div>
+        `;
+        productsGrid.appendChild(card);
+        revealObserver.observe(card);
+    });
+}
+
+// ===== Gallery Grid (Dynamic) =====
+const galleryItems = [
+    { category: 'cameras', icon: 'fa-store', title: 'تركيب كاميرات بالمحلات' },
+    { category: 'cameras', icon: 'fa-home', title: 'تركيب كاميرات بالمنازل' },
+    { category: 'control', icon: 'fa-desktop', title: 'غرف المراقبة' },
+    { category: 'sound', icon: 'fa-mosque', title: 'أنظمة صوت المساجد' },
+    { category: 'sound', icon: 'fa-volume-up', title: 'صوتيات المحلات' },
+    { category: 'network', icon: 'fa-server', title: 'تمديد شبكات' },
+    { category: 'cameras', icon: 'fa-building', title: 'كاميرات شركات' },
+    { category: 'control', icon: 'fa-shield-alt', title: 'أنظمة تحكم' },
+];
+
+const galleryGrid = document.getElementById('galleryGrid');
+if (galleryGrid) {
+    const renderGallery = (filter = 'all') => {
+        galleryGrid.innerHTML = '';
         galleryItems.forEach(item => {
-            if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
-                item.style.display = 'block';
-            } else {
-                item.style.display = 'none';
+            if (filter === 'all' || item.category === filter) {
+                const div = document.createElement('div');
+                div.className = `gallery-item reveal ${item.category}`;
+                div.innerHTML = `<div style="text-align:center"><i class="fas ${item.icon}"></i><small style="display:block;margin-top:0.5rem;color:var(--gray-600)">${item.title}</small></div>`;
+                galleryGrid.appendChild(div);
+                revealObserver.observe(div);
             }
         });
+    };
+    renderGallery();
+
+    // Filter buttons
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const filter = btn.getAttribute('data-filter');
+            renderGallery(filter);
+        });
     });
-});
+}
 
-// ==================== Testimonials Slider ====================
+// ===== Testimonial Slider =====
+const testimonialCards = document.querySelectorAll('.testimonial-card');
+const dots = document.querySelectorAll('.testimonial-dots .dot');
 let currentTestimonial = 0;
-const totalTestimonials = testimonialCards.length;
 
-function showTestimonial(index) {
+const showTestimonial = (index) => {
     testimonialCards.forEach(card => card.classList.remove('active'));
     dots.forEach(dot => dot.classList.remove('active'));
     testimonialCards[index].classList.add('active');
     dots[index].classList.add('active');
-}
+    currentTestimonial = index;
+};
 
-dots.forEach((dot, idx) => {
+dots.forEach(dot => {
     dot.addEventListener('click', () => {
-        currentTestimonial = idx;
-        showTestimonial(currentTestimonial);
+        const index = parseInt(dot.getAttribute('data-index'));
+        showTestimonial(index);
     });
 });
 
-// Auto-rotate every 5 seconds
+// Auto rotate testimonials
 setInterval(() => {
-    currentTestimonial = (currentTestimonial + 1) % totalTestimonials;
+    currentTestimonial = (currentTestimonial + 1) % testimonialCards.length;
     showTestimonial(currentTestimonial);
 }, 5000);
 
-// ==================== FAQ Accordion ====================
-faqQuestions.forEach(question => {
-    question.addEventListener('click', () => {
-        const faqItem = question.parentElement;
+// ===== FAQ Accordion =====
+document.querySelectorAll('.faq-question').forEach(button => {
+    button.addEventListener('click', () => {
+        const faqItem = button.parentElement;
         const isActive = faqItem.classList.contains('active');
-
-        // Close all other items
+        // Close all
         document.querySelectorAll('.faq-item').forEach(item => item.classList.remove('active'));
-
-        // Toggle clicked item
-        if (!isActive) {
-            faqItem.classList.add('active');
-        }
+        // Open clicked if it wasn't active
+        if (!isActive) faqItem.classList.add('active');
     });
 });
 
-// ==================== Inspection Form Handling ====================
-inspectionForm.addEventListener('submit', function(e) {
-    e.preventDefault();
+// ===== Form Submission (Demo) =====
+const quoteForm = document.getElementById('quoteForm');
+if (quoteForm) {
+    quoteForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const formData = new FormData(quoteForm);
+        // Simulate submission
+        alert(`شكراً ${formData.get('name')}!\nتم استلام طلبك بنجاح. سنتواصل معك قريباً على الرقم ${formData.get('phone')}.`);
+        quoteForm.reset();
+    });
+}
 
-    // Simple form validation (optional)
-    const name = document.getElementById('fullName').value.trim();
-    const phone = document.getElementById('phone').value.trim();
-    const address = document.getElementById('address').value.trim();
-    const service = document.getElementById('serviceType').value;
-
-    if (!name || !phone || !address || !service) {
-        alert('يرجى ملء جميع الحقول المطلوبة.');
-        return;
+// ===== Close mobile menu on outside click =====
+document.addEventListener('click', (e) => {
+    if (!nav.contains(e.target) && !menuToggle.contains(e.target)) {
+        nav.classList.remove('active');
     }
-
-    // Simulate form submission (you can integrate with backend here)
-    // For demo, hide form and show success message
-    inspectionForm.style.display = 'none';
-    formSuccess.style.display = 'block';
-
-    // Optional: Reset form after 5 seconds (for demonstration)
-    setTimeout(() => {
-        inspectionForm.reset();
-        inspectionForm.style.display = 'block';
-        formSuccess.style.display = 'none';
-    }, 6000);
 });
 
-// ==================== Smooth Scroll for Anchor Links (additional) ====================
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        const targetId = this.getAttribute('href');
-        if (targetId === '#') return;
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-            e.preventDefault();
-            targetElement.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-    });
-});
+console.log('Technology Power - جميع الأنظمة تعمل بنجاح ✅');

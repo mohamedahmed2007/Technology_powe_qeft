@@ -3,52 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Technology Power - حلول متكاملة للأنظمة الأمنية وكاميرات المراقبة وأنظمة الصوت">
-    <title>Technology Power | حلول متكاملة للأنظمة الأمنية</title>
-
-    <!-- Google Fonts: Cairo -->
+    <title>Technology Power - حلول متكاملة للأنظمة الأمنية وكاميرات المراقبة</title>
+    <meta name="description" content="Technology Power - شركة متخصصة في تركيب كاميرات المراقبة، أنظمة الإنذار، أنظمة الصوت، الشبكات، والتحكم في الدخول والخروج. حلول أمنية متكاملة بأعلى جودة.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-    <!-- Font Awesome 6 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-
-    <!-- AOS Animation Library -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-
-    <!-- رابط ملف CSS الخارجي -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-content">
+            <div class="preloader-logo">TP</div>
+            <div class="preloader-spinner"></div>
+        </div>
+    </div>
 
-    <!-- ==================== HEADER / NAVBAR ==================== -->
+    <!-- Header / Navbar -->
     <header class="header" id="header">
         <div class="container">
             <div class="header-inner">
                 <a href="#" class="logo">
-                    <i class="fa-solid fa-shield-halved"></i>
-                    <span>Technology <strong>Power</strong></span>
+                    <div class="logo-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="logo-text">
+                        <span class="logo-title">Technology Power</span>
+                        <span class="logo-subtitle">أنظمة أمنية متكاملة</span>
+                    </div>
                 </a>
                 <nav class="nav" id="nav">
                     <ul class="nav-list">
                         <li><a href="#home" class="nav-link active">الرئيسية</a></li>
                         <li><a href="#about" class="nav-link">من نحن</a></li>
                         <li><a href="#services" class="nav-link">خدماتنا</a></li>
-                        <li><a href="#products" class="nav-link">المنتجات</a></li>
                         <li><a href="#gallery" class="nav-link">معرض الأعمال</a></li>
-                        <li><a href="#why-us" class="nav-link">لماذا نحن</a></li>
+                        <li><a href="#products" class="nav-link">المنتجات</a></li>
                         <li><a href="#offers" class="nav-link">العروض</a></li>
-                        <li><a href="#faq" class="nav-link">الأسئلة الشائعة</a></li>
+                        <li><a href="#faq" class="nav-link">أسئلة شائعة</a></li>
                         <li><a href="#contact" class="nav-link">تواصل معنا</a></li>
                     </ul>
                 </nav>
                 <div class="header-actions">
-                    <button class="dark-mode-toggle" id="darkModeToggle" aria-label="تبديل الوضع الليلي">
-                        <i class="fa-solid fa-moon"></i>
-                        <i class="fa-solid fa-sun"></i>
+                    <button class="btn-icon dark-mode-toggle" id="darkModeToggle" aria-label="تبديل الوضع الليلي">
+                        <i class="fas fa-moon"></i>
+                        <i class="fas fa-sun"></i>
                     </button>
-                    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="القائمة">
+                    <a href="#quote-form" class="btn btn-primary btn-sm header-cta">اطلب عرض سعر</a>
+                    <button class="btn-icon menu-toggle" id="menuToggle" aria-label="القائمة">
                         <span></span>
                         <span></span>
                         <span></span>
@@ -58,520 +61,631 @@
         </div>
     </header>
 
-    <!-- ==================== HERO SECTION ==================== -->
-    <section class="hero" id="home">
-        <div class="hero-overlay"></div>
-        <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
-            <span class="hero-badge">الحل الأمثل للأمان</span>
-            <h1 class="hero-title">حلول متكاملة للأنظمة الأمنية<br>وكاميرات المراقبة وأنظمة الصوت</h1>
-            <p class="hero-subtitle">نوفر أحدث تقنيات المراقبة والأمان مع تركيب احترافي ودعم فني متواصل</p>
-            <div class="hero-buttons">
-                <a href="#inspection" class="btn btn-primary">
-                    <i class="fa-solid fa-file-invoice"></i> اطلب عرض سعر
-                </a>
-                <a href="#contact" class="btn btn-outline">
-                    <i class="fa-solid fa-phone"></i> تواصل معنا
-                </a>
-            </div>
-        </div>
-        <div class="hero-particles" id="heroParticles"></div>
-    </section>
-
-    <!-- ==================== ABOUT SECTION ==================== -->
-    <section class="about section" id="about">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <span class="section-tag">من نحن</span>
-                <h2 class="section-title">شركة Technology Power</h2>
-                <p class="section-desc">شركة متخصصة في أنظمة الأمن والسلامة بخبرة تمتد لسنوات في السوق المصري</p>
-            </div>
-            <div class="about-grid">
-                <div class="about-image" data-aos="fade-left" data-aos-delay="200">
-                    <div class="about-img-placeholder">
-                        <i class="fa-solid fa-camera-security fa-5x"></i>
-                        <span>Technology Power</span>
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="hero-overlay"></div>
+            <div class="hero-particles" id="heroParticles"></div>
+            <div class="container">
+                <div class="hero-content">
+                    <span class="hero-badge">شركة اوز لأنظمة المراقبة</span>
+                    <h1 class="hero-title">
+                        حلول متكاملة
+                        <span class="hero-highlight">للأنظمة الأمنية</span>
+                        وكاميرات المراقبة وأنظمة الصوت
+                    </h1>
+                    <p class="hero-description">
+                        نقدم أحدث تقنيات المراقبة والأمان مع فريق من المهندسين والفنيين المتخصصين. نحمي ما يهمك بأعلى معايير الجودة والأمان.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#quote-form" class="btn btn-primary btn-lg">
+                            <i class="fas fa-file-invoice"></i> اطلب عرض سعر
+                        </a>
+                        <a href="#contact" class="btn btn-outline btn-lg">
+                            <i class="fas fa-phone"></i> تواصل معنا
+                        </a>
                     </div>
-                </div>
-                <div class="about-content" data-aos="fade-right" data-aos-delay="300">
-                    <h3>خبرة واحترافية في أنظمة الأمان</h3>
-                    <p>نقدم حلولاً أمنية شاملة تناسب جميع الاحتياجات، من كاميرات المراقبة عالية الدقة إلى أنظمة الإنذار المتطورة وأنظمة الصوت الاحترافية.</p>
-                    <ul class="about-list">
-                        <li><i class="fa-solid fa-check-circle"></i> تركيب كاميرات المراقبة بجميع أنواعها</li>
-                        <li><i class="fa-solid fa-check-circle"></i> أنظمة الإنذار ضد السرقة والحريق</li>
-                        <li><i class="fa-solid fa-check-circle"></i> أنظمة التحكم في الدخول والخروج</li>
-                        <li><i class="fa-solid fa-check-circle"></i> أنظمة الصوت والمساجد</li>
-                        <li><i class="fa-solid fa-check-circle"></i> شبكات الكمبيوتر وتمديد الكابلات</li>
-                        <li><i class="fa-solid fa-check-circle"></i> الدعم الفني والصيانة الدورية</li>
-                    </ul>
-                    <a href="#inspection" class="btn btn-primary">اطلب معاينة مجانية</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== STATS COUNTER ==================== -->
-    <section class="stats section" id="stats">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="stat-icon"><i class="fa-solid fa-briefcase"></i></div>
-                    <div class="stat-number" data-target="1250">0</div>
-                    <div class="stat-label">مشروع منفذ</div>
-                </div>
-                <div class="stat-item" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="stat-icon"><i class="fa-solid fa-users"></i></div>
-                    <div class="stat-number" data-target="850">0</div>
-                    <div class="stat-label">عميل سعيد</div>
-                </div>
-                <div class="stat-item" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="stat-icon"><i class="fa-solid fa-award"></i></div>
-                    <div class="stat-number" data-target="15">0</div>
-                    <div class="stat-label">عاماً من الخبرة</div>
-                </div>
-                <div class="stat-item" data-aos="zoom-in" data-aos-delay="400">
-                    <div class="stat-icon"><i class="fa-solid fa-headset"></i></div>
-                    <div class="stat-number" data-target="24">0</div>
-                    <div class="stat-label">ساعة دعم فني</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== SERVICES SECTION ==================== -->
-    <section class="services section" id="services">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <span class="section-tag">خدماتنا</span>
-                <h2 class="section-title">خدمات متكاملة تلبي احتياجاتك</h2>
-                <p class="section-desc">نقدم مجموعة واسعة من الخدمات الأمنية والتقنية بأعلى معايير الجودة</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="service-icon"><i class="fa-solid fa-video"></i></div>
-                    <h3>كاميرات المراقبة</h3>
-                    <ul>
-                        <li>كاميرات داخلية</li>
-                        <li>كاميرات خارجية</li>
-                        <li>كاميرات IP</li>
-                        <li>كاميرات WiFi</li>
-                        <li>أجهزة DVR و NVR</li>
-                    </ul>
-                </div>
-                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="service-icon"><i class="fa-solid fa-bell"></i></div>
-                    <h3>أنظمة الإنذار</h3>
-                    <ul>
-                        <li>حساسات الحركة</li>
-                        <li>إنذار الحريق</li>
-                        <li>إنذار السرقة</li>
-                    </ul>
-                </div>
-                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="service-icon"><i class="fa-solid fa-volume-high"></i></div>
-                    <h3>أنظمة الصوت</h3>
-                    <ul>
-                        <li>سماعات المساجد</li>
-                        <li>أنظمة النداء الداخلي</li>
-                        <li>أنظمة الصوت للمحلات والشركات</li>
-                    </ul>
-                </div>
-                <div class="service-card" data-aos="fade-up" data-aos-delay="400">
-                    <div class="service-icon"><i class="fa-solid fa-network-wired"></i></div>
-                    <h3>الشبكات</h3>
-                    <ul>
-                        <li>تركيب الشبكات</li>
-                        <li>راوترات وسويتشات</li>
-                        <li>تمديد كابلات الشبكات</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== PRODUCTS SECTION ==================== -->
-    <section class="products section" id="products">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <span class="section-tag">المنتجات</span>
-                <h2 class="section-title">منتجات نقدمها بأعلى جودة</h2>
-                <p class="section-desc">نوفر أفضل المنتجات من أشهر الماركات العالمية بأسعار تنافسية</p>
-            </div>
-            <div class="products-grid">
-                <div class="product-card" data-aos="flip-left" data-aos-delay="100">
-                    <div class="product-img"><i class="fa-solid fa-camera fa-3x"></i></div>
-                    <h4>كاميرات مراقبة</h4>
-                    <p>داخلية وخارجية بدقة عالية</p>
-                </div>
-                <div class="product-card" data-aos="flip-left" data-aos-delay="200">
-                    <div class="product-img"><i class="fa-solid fa-hard-drive fa-3x"></i></div>
-                    <h4>أجهزة تسجيل</h4>
-                    <p>DVR & NVR بجميع السعات</p>
-                </div>
-                <div class="product-card" data-aos="flip-left" data-aos-delay="300">
-                    <div class="product-img"><i class="fa-solid fa-database fa-3x"></i></div>
-                    <h4>هاردات المراقبة</h4>
-                    <p>هاردات متخصصة للمراقبة</p>
-                </div>
-                <div class="product-card" data-aos="flip-left" data-aos-delay="400">
-                    <div class="product-img"><i class="fa-solid fa-cable fa-3x"></i></div>
-                    <h4>كابلات الشبكات</h4>
-                    <p>جميع أنواع كابلات Cat6/Cat7</p>
-                </div>
-                <div class="product-card" data-aos="flip-left" data-aos-delay="500">
-                    <div class="product-img"><i class="fa-solid fa-fingerprint fa-3x"></i></div>
-                    <h4>أجهزة البصمة</h4>
-                    <p>أنظمة حضور وانصراف متطورة</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== GALLERY SECTION ==================== -->
-    <section class="gallery section" id="gallery">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <span class="section-tag">معرض الأعمال</span>
-                <h2 class="section-title">أعمالنا السابقة</h2>
-                <p class="section-desc">نفخر بما نقدمه من أعمال احترافية لعملائنا</p>
-            </div>
-            <div class="gallery-filter" data-aos="fade-up">
-                <button class="filter-btn active" data-filter="all">الكل</button>
-                <button class="filter-btn" data-filter="cameras">كاميرات مراقبة</button>
-                <button class="filter-btn" data-filter="sound">أنظمة صوت</button>
-                <button class="filter-btn" data-filter="network">شبكات</button>
-                <button class="filter-btn" data-filter="control">غرف مراقبة</button>
-            </div>
-            <div class="gallery-grid">
-                <div class="gallery-item" data-category="cameras" data-aos="zoom-in">
-                    <div class="gallery-placeholder"><i class="fa-solid fa-store fa-3x"></i><span>تركيب كاميرات بالمحلات</span></div>
-                </div>
-                <div class="gallery-item" data-category="cameras" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="gallery-placeholder"><i class="fa-solid fa-house fa-3x"></i><span>تركيب كاميرات بالمنازل</span></div>
-                </div>
-                <div class="gallery-item" data-category="control" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="gallery-placeholder"><i class="fa-solid fa-desktop fa-3x"></i><span>غرف المراقبة</span></div>
-                </div>
-                <div class="gallery-item" data-category="sound" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="gallery-placeholder"><i class="fa-solid fa-mosque fa-3x"></i><span>أنظمة الصوت والمساجد</span></div>
-                </div>
-                <div class="gallery-item" data-category="network" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="gallery-placeholder"><i class="fa-solid fa-server fa-3x"></i><span>تركيب الشبكات</span></div>
-                </div>
-                <div class="gallery-item" data-category="cameras" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="gallery-placeholder"><i class="fa-solid fa-building fa-3x"></i><span>كاميرات الشركات</span></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== WHY US SECTION ==================== -->
-    <section class="why-us section" id="why-us">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <span class="section-tag">لماذا نحن</span>
-                <h2 class="section-title">ما يميز Technology Power</h2>
-            </div>
-            <div class="why-us-grid">
-                <div class="why-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="why-icon"><i class="fa-solid fa-star"></i></div>
-                    <h4>خبرة عالية</h4>
-                    <p>أكثر من 15 عاماً في مجال الأنظمة الأمنية</p>
-                </div>
-                <div class="why-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="why-icon"><i class="fa-solid fa-tag"></i></div>
-                    <h4>أسعار تنافسية</h4>
-                    <p>أفضل الأسعار مع الحفاظ على الجودة العالية</p>
-                </div>
-                <div class="why-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="why-icon"><i class="fa-solid fa-shield-check"></i></div>
-                    <h4>ضمان على التركيب</h4>
-                    <p>ضمان شامل على جميع أعمال التركيب</p>
-                </div>
-                <div class="why-card" data-aos="fade-up" data-aos-delay="400">
-                    <div class="why-icon"><i class="fa-solid fa-headset"></i></div>
-                    <h4>دعم فني سريع</h4>
-                    <p>فريق دعم متاح على مدار الساعة</p>
-                </div>
-                <div class="why-card" data-aos="fade-up" data-aos-delay="500">
-                    <div class="why-icon"><i class="fa-solid fa-user-gear"></i></div>
-                    <h4>مهندسون وفنيون متخصصون</h4>
-                    <p>فريق مؤهل بأعلى الشهادات المهنية</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== TESTIMONIALS SECTION ==================== -->
-    <section class="testimonials section" id="testimonials">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <span class="section-tag">آراء العملاء</span>
-                <h2 class="section-title">ماذا يقول عملاؤنا</h2>
-            </div>
-            <div class="testimonials-slider" data-aos="fade-up">
-                <div class="testimonial-card active">
-                    <div class="testimonial-stars">★★★★★</div>
-                    <p>"خدمة ممتازة وتركيب احترافي لكاميرات المراقبة، أنصح بهم بشدة."</p>
-                    <div class="testimonial-author">
-                        <div class="avatar"><i class="fa-solid fa-user"></i></div>
-                        <div>
-                            <strong>أحمد محمد</strong>
-                            <span>صاحب محل تجاري</span>
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <span class="hero-stat-number" data-count="850">0</span>
+                            <span class="hero-stat-plus">+</span>
+                            <span class="hero-stat-label">مشروع منفذ</span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-number" data-count="15">0</span>
+                            <span class="hero-stat-plus">+</span>
+                            <span class="hero-stat-label">سنة خبرة</span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-number" data-count="3200">0</span>
+                            <span class="hero-stat-plus">+</span>
+                            <span class="hero-stat-label">عميل سعيد</span>
                         </div>
                     </div>
                 </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-stars">★★★★★</div>
-                    <p>"نظام الصوت الذي تم تركيبه في المسجد رائع، جودة عالية وصوت نقي."</p>
-                    <div class="testimonial-author">
-                        <div class="avatar"><i class="fa-solid fa-user"></i></div>
-                        <div>
-                            <strong>محمد علي</strong>
-                            <span>إمام مسجد</span>
+            </div>
+            <div class="hero-scroll-indicator">
+                <span>تصفح المزيد</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about section" id="about">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-subtitle">من نحن</span>
+                    <h2 class="section-title">شركة Technology Power</h2>
+                    <p class="section-description">رواد في مجال الأنظمة الأمنية المتكاملة منذ أكثر من 15 عاماً</p>
+                </div>
+                <div class="about-grid">
+                    <div class="about-image reveal">
+                        <div class="about-img-wrapper">
+                            <div class="about-img-placeholder">
+                                <i class="fas fa-camera"></i>
+                                <span>كاميرات مراقبة عالية الدقة</span>
+                            </div>
+                            <div class="about-experience-badge">
+                                <span>15+</span>
+                                <small>سنة خبرة</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-content reveal">
+                        <h3>خبراء في تأمين منشآتك بأحدث التقنيات</h3>
+                        <p>
+                            شركة Technology Power متخصصة في تقديم حلول متكاملة لأنظمة المراقبة والأمن، نقدم خدمات تركيب وصيانة كاميرات المراقبة بجميع أنواعها، وأنظمة الإنذار ضد السرقة والحريق، وأنظمة التحكم في الدخول والخروج، وأنظمة الصوت للمساجد والمحلات والشركات، بالإضافة إلى شبكات الكمبيوتر.
+                        </p>
+                        <ul class="about-list">
+                            <li><i class="fas fa-check-circle"></i> تركيب كاميرات المراقبة بجميع أنواعها (داخلية، خارجية، IP، WiFi)</li>
+                            <li><i class="fas fa-check-circle"></i> أنظمة الإنذار ضد السرقة والحريق وحساسات الحركة</li>
+                            <li><i class="fas fa-check-circle"></i> أنظمة التحكم في الدخول والخروج وأجهزة البصمة</li>
+                            <li><i class="fas fa-check-circle"></i> أنظمة الصوت والمساجد والنداء الداخلي</li>
+                            <li><i class="fas fa-check-circle"></i> شبكات الكمبيوتر وتمديد الكابلات</li>
+                            <li><i class="fas fa-check-circle"></i> الدعم الفني والصيانة الدورية على مدار الساعة</li>
+                        </ul>
+                        <a href="#quote-form" class="btn btn-primary">احصل على استشارة مجانية</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services section section-alt" id="services">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-subtitle">خدماتنا</span>
+                    <h2 class="section-title">نقدم أفضل الحلول الأمنية</h2>
+                    <p class="section-description">مجموعة متكاملة من الخدمات لتلبية جميع احتياجاتكم الأمنية والتقنية</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card reveal">
+                        <div class="service-icon">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <h3>كاميرات المراقبة</h3>
+                        <p>كاميرات داخلية، خارجية، IP، WiFi، أجهزة DVR و NVR بأعلى دقة وجودة تصوير.</p>
+                        <ul class="service-features">
+                            <li>كاميرات داخلية وخارجية</li>
+                            <li>كاميرات IP و WiFi</li>
+                            <li>أجهزة تسجيل DVR و NVR</li>
+                            <li>رؤية ليلية متطورة</li>
+                        </ul>
+                    </div>
+                    <div class="service-card reveal">
+                        <div class="service-icon">
+                            <i class="fas fa-bell"></i>
+                        </div>
+                        <h3>أنظمة الإنذار</h3>
+                        <p>حساسات الحركة، إنذار الحريق، وإنذار السرقة بأحدث التقنيات لحماية ممتلكاتكم.</p>
+                        <ul class="service-features">
+                            <li>حساسات الحركة المتطورة</li>
+                            <li>إنذار الحريق والدخان</li>
+                            <li>إنذار السرقة والاقتحام</li>
+                            <li>ربط مع تطبيقات الجوال</li>
+                        </ul>
+                    </div>
+                    <div class="service-card reveal">
+                        <div class="service-icon">
+                            <i class="fas fa-volume-up"></i>
+                        </div>
+                        <h3>أنظمة الصوت</h3>
+                        <p>سماعات المساجد، أنظمة النداء الداخلي، وأنظمة الصوت للمحلات والشركات بجودة نقية.</p>
+                        <ul class="service-features">
+                            <li>سماعات المساجد الاحترافية</li>
+                            <li>أنظمة النداء الداخلي</li>
+                            <li>صوتيات المحلات والشركات</li>
+                            <li>ميكروفونات ومكبرات صوت</li>
+                        </ul>
+                    </div>
+                    <div class="service-card reveal">
+                        <div class="service-icon">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <h3>الشبكات</h3>
+                        <p>تركيب الشبكات، راوترات وسويتشات، وتمديد كابلات الشبكات بمعايير احترافية.</p>
+                        <ul class="service-features">
+                            <li>تركيب شبكات الكمبيوتر</li>
+                            <li>راوترات وسويتشات</li>
+                            <li>تمديد كابلات الشبكات</li>
+                            <li>تكوين الشبكات اللاسلكية</li>
+                        </ul>
+                    </div>
+                    <div class="service-card reveal">
+                        <div class="service-icon">
+                            <i class="fas fa-fingerprint"></i>
+                        </div>
+                        <h3>التحكم في الدخول</h3>
+                        <p>أنظمة التحكم في الدخول والخروج وأجهزة البصمة لتأمين المنشآت الحساسة.</p>
+                        <ul class="service-features">
+                            <li>أجهزة البصمة والحضور</li>
+                            <li>بوابات الدخول الإلكترونية</li>
+                            <li>كروت التحكم والوصول</li>
+                            <li>أنظمة التعرف على الوجه</li>
+                        </ul>
+                    </div>
+                    <div class="service-card reveal">
+                        <div class="service-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h3>الدعم الفني والصيانة</h3>
+                        <p>دعم فني سريع وصيانة دورية لجميع الأنظمة على مدار الساعة لضمان استمرارية العمل.</p>
+                        <ul class="service-features">
+                            <li>صيانة دورية منتظمة</li>
+                            <li>دعم فني 24/7</li>
+                            <li>زيارات طارئة سريعة</li>
+                            <li>عقود صيانة سنوية</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section class="products section" id="products">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-subtitle">المنتجات</span>
+                    <h2 class="section-title">أفضل المنتجات التقنية</h2>
+                    <p class="section-description">نوفر منتجات عالية الجودة من أفضل العلامات التجارية العالمية</p>
+                </div>
+                <div class="products-grid" id="productsGrid">
+                    <!-- Product cards will be rendered by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section class="gallery section section-alt" id="gallery">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-subtitle">معرض الأعمال</span>
+                    <h2 class="section-title">أعمالنا السابقة</h2>
+                    <p class="section-description">نفتخر بمشاريعنا المنفذة بأعلى مستويات الجودة والاحترافية</p>
+                </div>
+                <div class="gallery-filter reveal">
+                    <button class="filter-btn active" data-filter="all">الكل</button>
+                    <button class="filter-btn" data-filter="cameras">كاميرات المراقبة</button>
+                    <button class="filter-btn" data-filter="sound">أنظمة الصوت</button>
+                    <button class="filter-btn" data-filter="network">الشبكات</button>
+                    <button class="filter-btn" data-filter="control">غرف المراقبة</button>
+                </div>
+                <div class="gallery-grid" id="galleryGrid">
+                    <!-- Gallery items rendered by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Us Section -->
+        <section class="why-us section" id="why-us">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-subtitle">لماذا نحن؟</span>
+                    <h2 class="section-title">ما يميز Technology Power</h2>
+                </div>
+                <div class="why-us-grid">
+                    <div class="why-card reveal">
+                        <div class="why-icon"><i class="fas fa-medal"></i></div>
+                        <h3>خبرة عالية</h3>
+                        <p>أكثر من 15 عاماً من الخبرة في مجال الأنظمة الأمنية والتقنية.</p>
+                    </div>
+                    <div class="why-card reveal">
+                        <div class="why-icon"><i class="fas fa-tags"></i></div>
+                        <h3>أسعار تنافسية</h3>
+                        <p>أفضل الأسعار في السوق مع الحفاظ على أعلى معايير الجودة.</p>
+                    </div>
+                    <div class="why-card reveal">
+                        <div class="why-icon"><i class="fas fa-shield-alt"></i></div>
+                        <h3>ضمان على التركيب</h3>
+                        <p>ضمان شامل على جميع أعمال التركيب والصيانة لفترة طويلة.</p>
+                    </div>
+                    <div class="why-card reveal">
+                        <div class="why-icon"><i class="fas fa-headset"></i></div>
+                        <h3>دعم فني سريع</h3>
+                        <p>فريق دعم فني متاح على مدار الساعة للاستجابة السريعة.</p>
+                    </div>
+                    <div class="why-card reveal">
+                        <div class="why-icon"><i class="fas fa-user-tie"></i></div>
+                        <h3>مهندسون وفنيون متخصصون</h3>
+                        <p>كادر هندسي وفني مؤهل ومدرب على أحدث التقنيات.</p>
+                    </div>
+                    <div class="why-card reveal">
+                        <div class="why-icon"><i class="fas fa-clock"></i></div>
+                        <h3>التزام بالمواعيد</h3>
+                        <p>نلتزم بالتسليم في الوقت المحدد دون تأخير مع جودة عالية.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Counter Section -->
+        <section class="stats section">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item reveal">
+                        <div class="stat-icon"><i class="fas fa-project-diagram"></i></div>
+                        <div class="stat-number-wrapper">
+                            <span class="stat-number counter" data-target="850">0</span>
+                            <span class="stat-suffix">+</span>
+                        </div>
+                        <span class="stat-label">مشروع منفذ</span>
+                    </div>
+                    <div class="stat-item reveal">
+                        <div class="stat-icon"><i class="fas fa-smile"></i></div>
+                        <div class="stat-number-wrapper">
+                            <span class="stat-number counter" data-target="3200">0</span>
+                            <span class="stat-suffix">+</span>
+                        </div>
+                        <span class="stat-label">عميل سعيد</span>
+                    </div>
+                    <div class="stat-item reveal">
+                        <div class="stat-icon"><i class="fas fa-calendar-alt"></i></div>
+                        <div class="stat-number-wrapper">
+                            <span class="stat-number counter" data-target="15">0</span>
+                            <span class="stat-suffix">+</span>
+                        </div>
+                        <span class="stat-label">سنة خبرة</span>
+                    </div>
+                    <div class="stat-item reveal">
+                        <div class="stat-icon"><i class="fas fa-award"></i></div>
+                        <div class="stat-number-wrapper">
+                            <span class="stat-number counter" data-target="100">0</span>
+                            <span class="stat-suffix">%</span>
+                        </div>
+                        <span class="stat-label">رضا العملاء</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Offers Section -->
+        <section class="offers section section-alt" id="offers">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-subtitle">عروض وخصومات</span>
+                    <h2 class="section-title">عروض حصرية لفترة محدودة</h2>
+                    <p class="section-description">استفد من عروضنا المميزة ووفر على أنظمتك الأمنية</p>
+                </div>
+                <div class="offers-grid">
+                    <div class="offer-card reveal">
+                        <div class="offer-badge">الأكثر مبيعاً</div>
+                        <div class="offer-header">
+                            <h3>الباقة الأساسية</h3>
+                            <div class="offer-price">
+                                <span class="old-price">7,000 ج.م</span>
+                                <span class="new-price">5,000 ج.م</span>
+                            </div>
+                        </div>
+                        <ul class="offer-features">
+                            <li><i class="fas fa-check"></i> 4 كاميرات داخلية</li>
+                            <li><i class="fas fa-check"></i> جهاز DVR</li>
+                            <li><i class="fas fa-check"></i> هارد 1 تيرا</li>
+                            <li><i class="fas fa-check"></i> تركيب مجاني</li>
+                            <li><i class="fas fa-check"></i> ضمان سنة</li>
+                        </ul>
+                        <a href="#quote-form" class="btn btn-primary btn-block">اطلب العرض</a>
+                    </div>
+                    <div class="offer-card reveal offer-featured">
+                        <div class="offer-badge">الأفضل قيمة</div>
+                        <div class="offer-header">
+                            <h3>الباقة المتكاملة</h3>
+                            <div class="offer-price">
+                                <span class="old-price">15,000 ج.م</span>
+                                <span class="new-price">9,000 ج.م</span>
+                            </div>
+                        </div>
+                        <ul class="offer-features">
+                            <li><i class="fas fa-check"></i> 8 كاميرات IP</li>
+                            <li><i class="fas fa-check"></i> جهاز NVR</li>
+                            <li><i class="fas fa-check"></i> هارد 2 تيرا</li>
+                            <li><i class="fas fa-check"></i> تركيب وتكوين مجاني</li>
+                            <li><i class="fas fa-check"></i> تطبيق جوال</li>
+                            <li><i class="fas fa-check"></i> ضمان سنتين</li>
+                        </ul>
+                        <a href="#quote-form" class="btn btn-primary btn-block">اطلب العرض</a>
+                    </div>
+                    <div class="offer-card reveal">
+                        <div class="offer-badge">للشركات</div>
+                        <div class="offer-header">
+                            <h3>باقة المؤسسات</h3>
+                            <div class="offer-price">
+                                <span class="old-price">20,000 ج.م</span>
+                                <span class="new-price">10.000 ج.م</span>
+                            </div>
+                        </div>
+                        <ul class="offer-features">
+                            <li><i class="fas fa-check"></i> 16 كاميرا متنوعة</li>
+                            <li><i class="fas fa-check"></i> NVR احترافي</li>
+                            <li><i class="fas fa-check"></i> هارد 4 تيرا</li>
+                            <li><i class="fas fa-check"></i> شاشة مراقبة</li>
+                            <li><i class="fas fa-check"></i> تركيب كامل</li>
+                            <li><i class="fas fa-check"></i> ضمان 3 سنوات</li>
+                        </ul>
+                        <a href="#quote-form" class="btn btn-primary btn-block">اطلب العرض</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials section" id="testimonials">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-subtitle">آراء العملاء</span>
+                    <h2 class="section-title">ماذا يقول عملاؤنا عنا</h2>
+                </div>
+                <div class="testimonials-slider reveal" id="testimonialsSlider">
+                    <div class="testimonial-card active">
+                        <div class="testimonial-stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"خدمة ممتازة وفريق محترف. ركبوا كاميرات المراقبة في المحل بسرعة ودقة عالية. الصورة واضحة جداً والتطبيق سهل الاستخدام. أنصح بهم بشدة."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">أ.م</div>
+                            <div>
+                                <strong>أحمد محمد</strong>
+                                <span>صاحب محل تجاري</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"تعاملت معهم لتركيب نظام صوت للمسجد. جودة الصوت ممتازة والتوزيع متقن. فريق العمل متعاون جداً والأسعار مناسبة."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">م.ع</div>
+                            <div>
+                                <strong>محمد علي</strong>
+                                <span>إمام مسجد</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"شبكة الكمبيوتر في شركتنا كانت تحتاج إعادة تأهيل كاملة. فريق Technology Power قام بعمل ممتاز، الشبكة الآن سريعة ومستقرة."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">س.ح</div>
+                            <div>
+                                <strong>سامح حسن</strong>
+                                <span>مدير شركة</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-stars">★★★★★</div>
-                    <p>"شبكة الكمبيوتر في شركتنا تعمل بكفاءة عالية بعد تركيبهم، شكراً Technology Power."</p>
-                    <div class="testimonial-author">
-                        <div class="avatar"><i class="fa-solid fa-user"></i></div>
-                        <div>
-                            <strong>خالد سعيد</strong>
-                            <span>مدير شركة</span>
+                <div class="testimonial-dots" id="testimonialDots">
+                    <button class="dot active" data-index="0"></button>
+                    <button class="dot" data-index="1"></button>
+                    <button class="dot" data-index="2"></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq section section-alt" id="faq">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-subtitle">أسئلة شائعة</span>
+                    <h2 class="section-title">كل ما تريد معرفته</h2>
+                </div>
+                <div class="faq-grid reveal">
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>ما هي أنواع كاميرات المراقبة المتوفرة لديكم؟</span>
+                            <i class="fas fa-plus"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>نوفر جميع أنواع كاميرات المراقبة: كاميرات داخلية، كاميرات خارجية مقاومة للعوامل الجوية، كاميرات IP عالية الدقة، كاميرات WiFi لاسلكية، وكاميرات بتقنيات متطورة مثل الرؤية الليلية والذكاء الاصطناعي.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>هل تقدمون ضمان على التركيب والأجهزة؟</span>
+                            <i class="fas fa-plus"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>نعم، نقدم ضماناً شاملاً على جميع أعمال التركيب لمدة سنة كاملة، وضمان على الأجهزة حسب نوعها يصل إلى 3 سنوات. كما نوفر عقود صيانة دورية لضمان استمرارية عمل الأنظمة.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>هل يمكنني مشاهدة الكاميرات من هاتفي المحمول؟</span>
+                            <i class="fas fa-plus"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>بالتأكيد! جميع أنظمتنا الحديثة تدعم المشاهدة عن بُعد عبر تطبيقات الهاتف المحمول (أندرويد و iOS). نقوم بتركيب وتكوين النظام بالكامل وتدريبك على استخدام التطبيق.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>كم تستغرق عملية التركيب؟</span>
+                            <i class="fas fa-plus"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>مدة التركيب تعتمد على حجم المشروع. تركيب 4 كاميرات مع جهاز التسجيل يستغرق عادة من 3 إلى 5 ساعات. المشاريع الكبيرة قد تستغرق يوماً أو يومين. نحرص على إنجاز العمل بأسرع وقت مع الحفاظ على الجودة.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>هل تقدمون خدمة معاينة مجانية؟</span>
+                            <i class="fas fa-plus"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>نعم، نقدم خدمة معاينة مجانية للموقع لتقييم الاحتياجات وتقديم عرض سعر دقيق ومناسب. يمكنك طلب المعاينة من خلال نموذج الاتصال أو الاتصال بنا مباشرة.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>ما هي طرق الدفع المتاحة؟</span>
+                            <i class="fas fa-plus"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>نوفر خيارات دفع متعددة تشمل الدفع النقدي، التحويل البنكي. نضمن الشفافية الكاملة في جميع المعاملات المالية.</p>
                         </div>
                     </div>
                 </div>
-                <div class="testimonial-dots">
-                    <span class="dot active" data-index="0"></span>
-                    <span class="dot" data-index="1"></span>
-                    <span class="dot" data-index="2"></span>
-                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ==================== OFFERS SECTION ==================== -->
-    <section class="offers section" id="offers">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <span class="section-tag">العروض والخصومات</span>
-                <h2 class="section-title">عروض حصرية لفترة محدودة</h2>
-            </div>
-            <div class="offers-grid">
-                <div class="offer-card highlight" data-aos="fade-up" data-aos-delay="100">
-                    <div class="offer-badge">الأكثر مبيعاً</div>
-                    <h4>باقة الأمان الشامل</h4>
-                    <p>4 كاميرات + جهاز DVR + تركيب مجاني</p>
-                    <div class="offer-price">
-                        <span class="old-price">8,500 ج.م</span>
-                        <span class="new-price">6,999 ج.م</span>
+        <!-- Quote Form Section -->
+        <section class="quote section" id="quote-form">
+            <div class="container">
+                <div class="quote-wrapper reveal">
+                    <div class="quote-info">
+                        <span class="section-subtitle">طلب معاينة مجانية</span>
+                        <h2 class="section-title">احصل على عرض سعر مجاني</h2>
+                        <p>املأ النموذج وسيتواصل معك فريقنا في أقرب وقت لتحديد موعد المعاينة المجانية وتقديم العرض المناسب.</p>
+                        <div class="quote-contact-info">
+                            <div class="qci-item">
+                                <i class="fas fa-phone"></i>
+                                <div>
+                                    <span>اتصل بنا</span>
+                                    <strong>01272716872</strong>
+                                </div>
+                            </div>
+                            <div class="qci-item">
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <span>البريد الإلكتروني</span>
+                                    <strong>abwm08422@gmail.com</strong>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <a href="https://wa.me/201272716872" class="btn btn-primary btn-sm" target="_blank">اطلب العرض</a>
-                </div>
-                <div class="offer-card" data-aos="fade-up" data-aos-delay="200">
-                    <h4>باقة نظام الصوت</h4>
-                    <p>سماعات + ميكروفونات + أمبليفاير</p>
-                    <div class="offer-price">
-                        <span class="old-price">12,000 ج.م</span>
-                        <span class="new-price">9,499 ج.م</span>
-                    </div>
-                    <a href="https://wa.me/201272716872" class="btn btn-outline btn-sm" target="_blank">اطلب العرض</a>
-                </div>
-                <div class="offer-card" data-aos="fade-up" data-aos-delay="300">
-                    <h4>باقة الشبكات</h4>
-                    <p>تمديد شبكة + رack + سويتش</p>
-                    <div class="offer-price">
-                        <span class="old-price">5,000 ج.م</span>
-                        <span class="new-price">3,799 ج.م</span>
-                    </div>
-                    <a href="https://wa.me/201272716872" class="btn btn-outline btn-sm" target="_blank">اطلب العرض</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== FAQ SECTION ==================== -->
-    <section class="faq section" id="faq">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <span class="section-tag">الأسئلة الشائعة</span>
-                <h2 class="section-title">أسئلة متكررة</h2>
-            </div>
-            <div class="faq-list" data-aos="fade-up">
-                <div class="faq-item">
-                    <button class="faq-question">
-                        ما هي أنواع كاميرات المراقبة المتوفرة؟
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p>نوفر كاميرات داخلية وخارجية وكاميرات IP وكاميرات WiFi بجودات مختلفة تبدأ من 2 ميجا بكسل حتى 8 ميجا بكسل، مع إمكانية الرؤية الليلية الملونة.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">
-                        هل تقدمون ضمان على التركيب؟
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p>نعم، نقدم ضماناً شاملاً على جميع أعمال التركيب لمدة سنة كاملة، بالإضافة إلى ضمان على الأجهزة حسب نوعها والشركة المصنعة.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">
-                        هل يمكن مراقبة الكاميرات عن بعد عبر الموبايل؟
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p>بالتأكيد، جميع أنظمتنا تدعم المراقبة عن بعد عبر تطبيقات الموبايل (Android و iOS) مجاناً، مع إمكانية استقبال إشعارات فورية عند اكتشاف الحركة.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">
-                        ما هي مدة التركيب المتوقعة؟
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p>مدة التركيب تعتمد على حجم المشروع. المشاريع الصغيرة (4-8 كاميرات) تستغرق يوماً واحداً، والمشاريع المتوسطة من 2-3 أيام. نحرص على إنجاز العمل بأسرع وقت مع الحفاظ على الجودة.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">
-                        هل تقدمون خدمة صيانة دورية؟
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p>نعم، لدينا عقود صيانة دورية (شهرية، ربع سنوية، سنوية) تشمل فحص جميع الأجهزة والكابلات والتأكد من عمل النظام بكفاءة، مع تقارير دورية عن حالة النظام.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== FREE INSPECTION FORM ==================== -->
-    <section class="inspection section" id="inspection">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <span class="section-tag">طلب معاينة</span>
-                <h2 class="section-title">اطلب معاينة مجانية</h2>
-                <p class="section-desc">املأ النموذج وسنتواصل معك في أقرب وقت</p>
-            </div>
-            <div class="inspection-form-wrapper" data-aos="fade-up">
-                <form class="inspection-form" id="inspectionForm">
-                    <div class="form-row">
+                    <form class="quote-form" id="quoteForm">
                         <div class="form-group">
-                            <label for="fullName">الاسم الكامل <span>*</span></label>
-                            <input type="text" id="fullName" name="fullName" placeholder="أدخل اسمك الكامل" required>
+                            <label for="name">الاسم الكامل *</label>
+                            <input type="text" id="name" name="name" placeholder="أدخل اسمك الكامل" required>
                         </div>
                         <div class="form-group">
-                            <label for="phone">رقم الهاتف <span>*</span></label>
-                            <input type="tel" id="phone" name="phone" placeholder="01xxxxxxxxx" required dir="ltr">
+                            <label for="phone">رقم الهاتف *</label>
+                            <input type="tel" id="phone" name="phone" placeholder="أدخل رقم هاتفك" required>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="address">العنوان <span>*</span></label>
-                        <input type="text" id="address" name="address" placeholder="أدخل العنوان بالتفصيل" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="serviceType">نوع الخدمة المطلوبة <span>*</span></label>
-                        <select id="serviceType" name="serviceType" required>
-                            <option value="" disabled selected>اختر نوع الخدمة</option>
-                            <option value="cameras">كاميرات مراقبة</option>
-                            <option value="alarm">أنظمة إنذار</option>
-                            <option value="sound">أنظمة صوت</option>
-                            <option value="network">شبكات كمبيوتر</option>
-                            <option value="maintenance">صيانة ودعم فني</option>
-                            <option value="other">أخرى</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="notes">ملاحظات إضافية</label>
-                        <textarea id="notes" name="notes" rows="3" placeholder="أي تفاصيل إضافية تود إضافتها..."></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-block">
-                        <i class="fa-solid fa-paper-plane"></i> إرسال الطلب
-                    </button>
-                </form>
-                <div class="form-success" id="formSuccess" style="display:none;">
-                    <i class="fa-solid fa-circle-check fa-4x"></i>
-                    <h3>تم إرسال طلبك بنجاح!</h3>
-                    <p>سنقوم بالتواصل معك خلال 24 ساعة.</p>
+                        <div class="form-group">
+                            <label for="address">العنوان</label>
+                            <input type="text" id="address" name="address" placeholder="أدخل العنوان">
+                        </div>
+                        <div class="form-group">
+                            <label for="service">نوع الخدمة المطلوبة *</label>
+                            <select id="service" name="service" required>
+                                <option value="">اختر الخدمة</option>
+                                <option value="cameras">كاميرات المراقبة</option>
+                                <option value="alarm">أنظمة الإنذار</option>
+                                <option value="sound">أنظمة الصوت</option>
+                                <option value="network">الشبكات</option>
+                                <option value="access">التحكم في الدخول والخروج</option>
+                                <option value="maintenance">صيانة ودعم فني</option>
+                                <option value="other">أخرى</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">تفاصيل إضافية</label>
+                            <textarea id="message" name="message" rows="3" placeholder="اكتب أي تفاصيل إضافية تود إضافتها..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block btn-lg">
+                            <i class="fas fa-paper-plane"></i> إرسال الطلب
+                        </button>
+                    </form>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ==================== CONTACT SECTION ==================== -->
-    <section class="contact section" id="contact">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <span class="section-tag">تواصل معنا</span>
-                <h2 class="section-title">معلومات التواصل</h2>
-            </div>
-            <div class="contact-grid">
-                <div class="contact-info" data-aos="fade-left">
-                    <div class="contact-card">
-                        <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
-                        <div>
-                            <h4>الهاتف</h4>
-                            <a href="tel:+201272716872">01272716872</a>
-                            <a href="tel:+201116604146">01116604146</a>
+        <!-- Contact Section -->
+        <section class="contact section section-alt" id="contact">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-subtitle">تواصل معنا</span>
+                    <h2 class="section-title">نحن في خدمتكم دائماً</h2>
+                </div>
+                <div class="contact-grid reveal">
+                    <div class="contact-details">
+                        <div class="contact-card">
+                            <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                            <div>
+                                <strong>رقم الهاتف</strong>
+                                <span>01272716872</span>
+                                <span>01116604146</span>
+                            </div>
+                        </div>
+                        <div class="contact-card">
+                            <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
+                            <div>
+                                <strong>واتساب</strong>
+                                <span>01272716872</span>
+                            </div>
+                        </div>
+                        <div class="contact-card">
+                            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                            <div>
+                                <strong>البريد الإلكتروني</strong>
+                                <span>abwm08422@gmail.com</span>
+                            </div>
+                        </div>
+                        <div class="contact-card">
+                            <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div>
+                                <strong>عنوان الشركة</strong>
+                                <span>قنا_قفط_خلف مدرسة النهضة للتعليم الاساسي</span>
+                            </div>
+                        </div>
+                        <div class="contact-social">
+                            <a href="#" class="social-link" aria-label="فيسبوك"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-link" aria-label="انستجرام"><i class="fab fa-instagram"></i></a>
+                            <a href="https://wa.me/201272716872" class="social-link" aria-label="واتساب" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                            <a href="mailto:abwm08422@gmail.com" class="social-link" aria-label="بريد إلكتروني"><i class="fas fa-envelope"></i></a>
                         </div>
                     </div>
-                    <div class="contact-card">
-                        <div class="contact-icon"><i class="fa-brands fa-whatsapp"></i></div>
-                        <div>
-                            <h4>واتساب</h4>
-                            <a href="https://wa.me/201272716872" target="_blank">01272716872</a>
-                            <a href="https://wa.me/201116604146" target="_blank">01116604146</a>
+                    <div class="contact-map">
+                        <div class="map-placeholder">
+                            <i class="fas fa-map-marked-alt"></i>
+                            <span>خريطة الموقع</span>
+                            <small>جمهورية مصر العربية</small>
                         </div>
-                    </div>
-                    <div class="contact-card">
-                        <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
-                        <div>
-                            <h4>البريد الإلكتروني</h4>
-                            <a href="mailto:abwm08422@gmail.com">abwm08422@gmail.com</a>
-                        </div>
-                    </div>
-                    <div class="contact-card">
-                        <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
-                        <div>
-                            <h4>العنوان</h4>
-                            <span>جمهورية مصر العربية</span>
-                        </div>
-                    </div>
-                    <div class="social-links">
-                        <a href="https://facebook.com/" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="https://instagram.com/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="https://wa.me/201272716872" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
                     </div>
                 </div>
-                <div class="contact-map" data-aos="fade-right">
-                    <div class="map-placeholder">
-                        <i class="fa-solid fa-map-location-dot fa-4x"></i>
-                        <p>خريطة الموقع</p>
-                        <span>Technology Power - مصر</span>
-                    </div>
-                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- ==================== FOOTER ==================== -->
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
-                <div class="footer-col">
+                <div class="footer-col footer-about">
                     <div class="footer-logo">
-                        <i class="fa-solid fa-shield-halved"></i>
-                        <span>Technology <strong>Power</strong></span>
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Technology Power</span>
                     </div>
-                    <p>حلول متكاملة للأنظمة الأمنية وكاميرات المراقبة وأنظمة الصوت. نضمن لكم الأمان والجودة.</p>
+                    <p>شركة متخصصة في الأنظمة الأمنية المتكاملة، كاميرات المراقبة، أنظمة الإنذار، أنظمة الصوت، والشبكات. نقدم حلولاً أمنية عالية الجودة بأسعار تنافسية.</p>
                 </div>
                 <div class="footer-col">
                     <h4>روابط سريعة</h4>
                     <ul>
                         <li><a href="#home">الرئيسية</a></li>
+                        <li><a href="#about">من نحن</a></li>
                         <li><a href="#services">خدماتنا</a></li>
                         <li><a href="#products">المنتجات</a></li>
                         <li><a href="#gallery">معرض الأعمال</a></li>
@@ -584,35 +698,37 @@
                         <li><a href="#services">أنظمة الإنذار</a></li>
                         <li><a href="#services">أنظمة الصوت</a></li>
                         <li><a href="#services">الشبكات</a></li>
+                        <li><a href="#services">الدعم الفني</a></li>
                     </ul>
                 </div>
-                <div class="footer-col">
+                <div class="footer-col footer-newsletter">
                     <h4>تواصل معنا</h4>
-                    <p><i class="fa-solid fa-phone"></i> 01272716872</p>
-                    <p><i class="fa-solid fa-phone"></i> 01116604146</p>
-                    <p><i class="fa-solid fa-envelope"></i> abwm08422@gmail.com</p>
+                    <p>ابق على تواصل معنا للحصول على آخر العروض والتحديثات.</p>
+                    <div class="footer-contact-info">
+                        <span><i class="fas fa-phone"></i> 01272716872</span>
+                        <span><i class="fas fa-phone"></i> 01116604146</span>
+                        <span><i class="fas fa-envelope"></i> abwm08422@gmail.com</span>
+                    </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 جميع الحقوق محفوظة لشركة <strong>Technology Power</strong></p>
+                <p>&copy; 2026 جميع الحقوق محفوظة - <strong>Technology Power</strong> - شركة تيكنولوجي باور لأنظمة المراقبة</p>
             </div>
         </div>
     </footer>
 
-    <!-- ==================== FLOATING WHATSAPP BUTTON ==================== -->
-    <a href="https://wa.me/201272716872" class="floating-whatsapp" target="_blank" aria-label="تواصل عبر واتساب" id="floatingWhatsapp">
-        <i class="fa-brands fa-whatsapp"></i>
-        <span class="pulse-ring"></span>
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/201272716872" class="whatsapp-float" target="_blank" aria-label="تواصل عبر واتساب">
+        <i class="fab fa-whatsapp"></i>
+        <span class="whatsapp-pulse"></span>
     </a>
 
-    <!-- ==================== BACK TO TOP BUTTON ==================== -->
+    <!-- Back to Top Button -->
     <button class="back-to-top" id="backToTop" aria-label="العودة للأعلى">
-        <i class="fa-solid fa-arrow-up"></i>
+        <i class="fas fa-arrow-up"></i>
     </button>
 
-    <!-- AOS Library JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <!-- رابط ملف JavaScript الخارجي -->
+    <!-- JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
